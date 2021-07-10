@@ -11,8 +11,8 @@ Ainda estou trabalhando nesse código. ⚠️
 
 ------------------------------------------
 
-I build this code to</br>
-learn more about network programming. </br>
+I build this code to learn </br>
+more about network programming. </br>
 
 - You will find the sources that I used</br>
 in the text files.</br>
