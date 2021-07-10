@@ -1,0 +1,32 @@
+Socket: ponto final de um fluxo comunicação. O socket vai 
+"tratar" os dados que chegarem em uma porta de comunicação.
+
+	São caracterizados por:
+
+		-Domínio: especifica a rede de comunicação.
+		 Seleciona a família de protocolo que
+		 será usada para comunicação.
+
+		 	EX:
+
+				AF_INET = IPv4
+
+		-Tipo: especifica a semântica de comunicação,
+		 trata da forma com que o socket vai trabalhar.
+
+			EX:
+
+				SOCK_STREAM = Fluxo de bytes sequenciados,
+				              confiáveis, bidirecionais e 
+								  baseados em uma conexão.
+
+		-Protocolo: protocolo que será usado por seu socket.
+
+			EX:
+
+				0 = IP Internet Protocol. 
+
+
+consultar: man protocols, man sockets.
+		
+		

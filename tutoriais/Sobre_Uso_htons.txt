@@ -1,0 +1,32 @@
+Isso é feito para manter a organização dos bytes enviados 
+na rede (Endianness). Dependendo da arquitetura do seu 
+dispositivo, os dados podem ser organizados na memória 
+no formato big-endian, ou little-endian. 
+Na rede, chamamos a representação da ordem de bytes 
+como ordem de bytes da rede e, em nosso Host, 
+é chamada de ordem de bytes do host. 
+
+Toda a ordem de bytes da rede está no formato big endian.
+
+Se a arquitetura do computador com memória do Host estiver 
+no formato little-endian, a função htons() se torna 
+necessária, mas no caso da arquitetura da memória 
+com formato big-endian, não é necessário. 
+
+seguinte maneira para sanar a dúvida se és big ou little:
+
+   int x = 1;
+   if (*(char *)&x){
+      cout<<"Little Endian"<<endl;
+   }else{
+      cout<<"Big Endian"<<endl;
+   }
+
+e, em seguida, decida se deseja usar htons() ou não. 
+Mas, para evitar a linha acima, sempre escrevemos htons(),
+embora isso não mude para a arquitetura de memória baseada 
+em Big-Endian.
+
+fonte: 
+
+https://www.ti-enxame.com/pt/c/funcao-htons-na-programacao-de-soquetes/1041814637/

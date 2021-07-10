@@ -1,0 +1,14 @@
+- socket  ==  cria um socket.
+- bind    ==  servidor dá nome a um socket
+			 	  para que outro processo 
+			     possa usá-lo.
+
+- listen ==  servidor indica ao kernel 
+				 que está apto a receber 
+				 conexões do clentes. 
+
+- accept ==  servidor aceita conexão.
+
+- send   ==  enviar uma mensagem em/para um socket.
+ 		|> ==  escrita e leitura.
+- recv   ==  receber mensagem de um socket.
