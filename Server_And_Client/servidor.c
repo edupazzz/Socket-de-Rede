@@ -9,18 +9,20 @@
 
 int main(int argc, char const *argv[])
 {
-	int server_fd, new_socket, valread;
 	// Struct sockaddr_in: struct básica para todas as syscalls
 	// e funções que lidam com endereço de internet
 		struct sockaddr_in address;
 
-	int opt = 1;
+/*Variáveis */
+	int server_fd, new_socket, valread;
+	int opt = 1; // Usar de opção para func: setsockopt
 	int addrlen = sizeof(address);
 	char buffer[1024] = {0};
 	char *hello = "Mensagem aqui, do servidor!";
+/*Fim Viariáveis */
 
 	// Construindo socket
-		server_fd = socket(AF_INET, SOCK_STREAM,0);
+		server_fd = socket(AF_INET, SOCK_STREAM, 0);
 
 	// Verificando se deu algum erro
 		if(server_fd == 0)
@@ -34,15 +36,17 @@ int main(int argc, char const *argv[])
 	// Forçando o socket a se conectar a porta 8080
 	// com a função "setsockopt", que serve para
 	// ver e atribuir opções personalizadas no socket
-		if(setsockopt(server_fd, SOL_SOCKET, 
-	   	SO_REUSEADDR | SO_REUSEPORT, &opt, 
-			sizeof(opt))){
+		int sock_opcoes = setsockopt(server_fd, SOL_SOCKET,
+											  SO_REUSEADDR | SO_REUSEPORT
+											  , &opt, sizeof(opt));
+	// Verificando se deu algum erro
+		if(sock_opcoes < 0){
 	
 			perror("setsockopt");
 			exit(EXIT_FAILURE);
 		}
 
-	/* Usando vars da struct sockaddr_in */
+/* Usando vars da struct sockaddr_in */
 
 	// AF_INET: tipos de endereços com quem o socket vai se comunicar
 		address.sin_family = AF_INET;
@@ -56,13 +60,13 @@ int main(int argc, char const *argv[])
 	
 	// Forçando o socket a se conectar a porta 8080
 	
-	// Fazendo a ligação
+	// Atribuindo um nome ao socket (veja o "man bind")
 		int myBind = bind(server_fd, (struct sockaddr *)&address,
 												sizeof(address));
 	// Verficado se há erros											
 		if(myBind < 0){
 	
-			perror("a ligação falhou");
+			perror("Atribuição Falhou");
 			exit(EXIT_FAILURE);
 		}
 	
@@ -70,6 +74,7 @@ int main(int argc, char const *argv[])
 	// Colocando o servidor para ouvir no socket
 		// All hail, the Listener! :v
 		int listener = listen(server_fd, 3);
+	
 	// Verificando se há erros 
 		if(listener < 0){
 		
@@ -77,6 +82,9 @@ int main(int argc, char const *argv[])
 			exit(EXIT_FAILURE);
 		}
 
+	// Criando um novo socket conectado usando a syscall accept
+	// (veja o man 2 accept)
+	int new_socket = accept(sock_fd,);
 
 	if((new_socket = accept(server_fd, (struct sockaddr *)&address,
 									(socklen_t*)&addrlen)) < 0){
