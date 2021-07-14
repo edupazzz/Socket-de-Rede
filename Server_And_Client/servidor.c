@@ -58,11 +58,10 @@ int main(int argc, char const *argv[])
 		address.sin_port = htons( PORT );  
 		
 	
-	// Forçando o socket a se conectar a porta 8080
-	
 	// Atribuindo um nome ao socket (veja o "man bind")
 		int myBind = bind(server_fd, (struct sockaddr *)&address,
 												sizeof(address));
+
 	// Verficado se há erros											
 		if(myBind < 0){
 	
@@ -84,18 +83,26 @@ int main(int argc, char const *argv[])
 
 	// Criando um novo socket conectado usando a syscall accept
 	// (veja o man 2 accept)
-	int new_socket = accept(sock_fd,);
+		new_socket = accept(server_fd, (struct sockaddr *)&address,
+									  (socklen_t*)&addrlen);
 
-	if((new_socket = accept(server_fd, (struct sockaddr *)&address,
-									(socklen_t*)&addrlen)) < 0){
+	// Verificando se há erros
+	if(new_socket< 0){
 									
 		perror("accept");
 		exit(EXIT_FAILURE);
 	}
-	valread = read(new_socket, buffer, 1024);
-	printf("%s\n",buffer);
+
+	// Usando variável "valread", para receber a func "read"
+	// que vai ler o "buffer"
+	valread = read(new_socket, buffer, sizeof(buffer));
+
+	// Mostrando mensagem recebida na tela
+	printf("\nMsg Recebida: %s\n",buffer);
+
+	// Enviando mensagem ao Cliente
 	send(new_socket, hello, strlen(hello), 0);
-	printf("Mensagem de Alooou enviada kkk\n");
+	printf("\nMensagem enviada ao Cliente\n");
 
 	return 0;
 }

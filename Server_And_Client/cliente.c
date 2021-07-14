@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
 	// Chamando struct 'sockaddr_in', criando 'serv_addr';
 	struct sockaddr_in serv_addr;
 
-	char *hello = "Eaee, daqui, do cliente!!?";
+	char *hello = "Eae, aqui do cliente!!?";
 	char buffer[1024] = {0};
 
 	if((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -45,11 +45,12 @@ int main(int argc, char const *argv[])
 	}
 
 	send(sock, hello, strlen(hello), 0);
-	printf("Hello mensagem enviada\n");
+	printf("Mensagem enviada ao server\n");
 
 	valread = read(sock, buffer, 1024);
 
-	printf("%s\n",buffer);
+	// Mostrando mesagem recebida na tela 
+	printf("Msg recebida: %s\n",buffer);
 
 	return 0;
 }
