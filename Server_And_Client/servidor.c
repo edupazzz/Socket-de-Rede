@@ -100,7 +100,8 @@ int main(int argc, char const *argv[])
 	// Mostrando mensagem recebida na tela
 	printf("\nMsg Recebida: %s\n",buffer);
 
-	// Enviando mensagem ao Cliente
+	// Enviando mensagem ao Cliente com "send",
+	// que serve para enviar uma mensagem à um socket
 	send(new_socket, hello, strlen(hello), 0);
 	printf("\nMensagem enviada ao Cliente\n");
 
