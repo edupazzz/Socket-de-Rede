@@ -1,4 +1,4 @@
-/* Clente: estudando programação de socket. 
+/* Cliente; estudando programação de socket. 
  * @eduardopazzz cyberundead */
 
 #include <stdio.h>
