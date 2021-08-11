@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 	// Chamando struct 'sockaddr_in', criando 'serv_addr';
 			struct sockaddr_in serv_addr;
 
-	// Variáveis
+	// Variáveiss
 			int sock = 0, valread;						  // var para socket
 			char *hello = "Eae, aqui do cliente!!?"; // Mensagem para o servidor
 			char buffer[1024] = {0};                 // buffer para o read
