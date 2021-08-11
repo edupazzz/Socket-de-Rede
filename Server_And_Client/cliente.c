@@ -34,10 +34,10 @@ int main(int argc, char const *argv[])
 
 	// usando a var com os atributos da struct 'sockaddr_in'		
 
-									// Usando IPv4
-	serv_addr.sin_family = 	AF_INET;
-									// Usando a nossa constante 'PORTA'
-	serv_addr.sin_port = 	htons(PORT);
+										// Usando IPv4
+			serv_addr.sin_family = 	AF_INET;
+   									// Usando a nossa constante PORTA
+			serv_addr.sin_port = 	htons(PORT);
 
 	// Converter endereços IPv4 e IPv6 de texto para binário
 			if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0){

@@ -54,7 +54,7 @@ int main(int argc, char const *argv[])
 		// INADDR_ANY: liga o socket a todas as interfaces disponíveis
 		address.sin_addr.s_addr = INADDR_ANY; 
 		
-		// htons: funcão usada para converter a ordem dos bytes do host para big-endian, para transmti-los na rede
+		// htons: funcão usada para converter a ordem dos bytes do host para big-endian, para transmiti-los na rede
 		address.sin_port = htons( PORT );  
 		
 	
