@@ -62,7 +62,7 @@ int main(int argc, char const *argv[])
 			valread = read(sock, buffer, 1024);
 
 	// Mostrando mesagem recebida na tela 
-	printf("Msg recebida: %s\n",buffer);
+			printf("Msg recebida: %s\n",buffer);
 
 	return 0;
 }
