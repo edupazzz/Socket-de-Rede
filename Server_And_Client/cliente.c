@@ -53,8 +53,10 @@ int main(int argc, char const *argv[])
 				return -1;
 			}
 
-	send(sock, hello, strlen(hello), 0);
-	printf("Mensagem enviada ao server\n");
+	// Enviando uma mensagem ao Socket do Servidor 
+			send(sock, hello, strlen(hello), 0);
+	// Aviso de que a mensagem foi eviada
+			printf("Mensagem enviada ao server\n");
 
 	valread = read(sock, buffer, 1024);
 
