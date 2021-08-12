@@ -58,7 +58,8 @@ int main(int argc, char const *argv[])
 	// Aviso de que a mensagem foi eviada
 			printf("Mensagem enviada ao server\n");
 
-	valread = read(sock, buffer, 1024);
+	// Lendo mensagem recebida no buffer
+			valread = read(sock, buffer, 1024);
 
 	// Mostrando mesagem recebida na tela 
 	printf("Msg recebida: %s\n",buffer);
