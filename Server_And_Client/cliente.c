@@ -40,16 +40,18 @@ int main(int argc, char const *argv[])
 			serv_addr.sin_port = 	htons(PORT);
 
 	// Converter endereços IPv4 e IPv6 de texto para binário
+	// E colocando endereço do servidor em "sin_addr"
 			if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0){
 				printf("\nEndereço inválido / Endereço não suportado\n");
 				return -1;
 			}
 
-	if(connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0){
+	// Iniciando a conexão com o socket	
+	     if(connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0){
 	
-		printf("\nConexão Falhou \n");
-		return -1;
-	}
+				printf("\nConexão Falhou \n");
+				return -1;
+			}
 
 	send(sock, hello, strlen(hello), 0);
 	printf("Mensagem enviada ao server\n");
