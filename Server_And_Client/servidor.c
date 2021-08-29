@@ -72,11 +72,11 @@ int main(int argc, char const *argv[])
 	
 	// Colocando o servidor para ouvir no socket
 		// All hail, the Listener! :v
-		int listener = listen(server_fd, 3);
+		int listener = listen(server_fd, 1);
 	
 	// Verificando se há erros 
 		if(listener < 0){
-		
+	
 			perror("listen");
 			exit(EXIT_FAILURE);
 		}
